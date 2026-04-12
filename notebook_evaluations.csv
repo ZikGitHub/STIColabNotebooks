@@ -1,0 +1,5 @@
+Notebook_Name,Features,Clusters,Silhouette,Davies_Bouldin,Calinski_Harabasz
+ServiceTickets001.ipynb,TF-IDF,5,0.0218,7.2142,6.1005
+ServiceTickets002.ipynb,SBERT,5,0.1038,2.2622,45.852
+ServiceTickets003.ipynb,SBERT,5,0.1038,2.2622,45.852
+ServiceTickets004.ipynb,SBERT,5,0.1038,2.2622,45.852
