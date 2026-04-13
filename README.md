@@ -1,71 +1,73 @@
-# Service Ticket Intelligence (STI) - Semantic NLP Pipeline
+# Service Ticket Intelligence (STI) - Semantic NLP & Agentic AIOps Pipeline
 
-This repository contains an end-to-end evolutionary pipeline for intelligently processing, clustering, and visualizing service tickets. The project moves from traditional keyword-based analysis to state-of-the-art **Semantic Embeddings** and **High-Performance Vector Indexing**.
+This repository contains an end-to-end evolutionary pipeline for intelligently processing, clustering, and visualizing service tickets. It has evolved from keyword-based analysis to an **Agentic Managed Services (AMS)** system powered by local LLMs.
 
-## 🚀 Project Evolution (The Notebook Roadmap)
+## 🚀 The AIOps Roadmap
 
-The analysis is structured across four primary stages, representing the progression of semantic complexity:
+The notebooks are organized into two tracks: **Research (ServiceTickets)** and **Agentic MVP (AMS Automation)**.
 
-1. **[ServiceTickets001.ipynb](./ServiceTickets001.ipynb) - The Baseline**
-   - Implements traditional **TF-IDF** vectorization.
-   - Uses standard **K-Means** clustering.
-   - Provides the "keyword count" perspective of the data.
+### 🛠️ Track A: Agentic AIOps (The AMS MVP Series)
+This track focuses on autonomous remediation and the "Agentic Brain."
 
+1. **[Agentic_AIOps_AMS_MVP001.ipynb](./Agentic_AIOps_AMS_MVP001.ipynb) - Statistical Baseline**
+   - Uses statistical mode analysis to synthesize Knowledge Articles (KAs).
+   - Maps IT systems to issue clusters using a heuristic Knowledge Graph.
+   - Provides a basic AIOps Orchestrator for incident routing.
+
+2. **[Agentic_AIOps_AMS_MVP002.ipynb](./Agentic_AIOps_AMS_MVP002.ipynb) - LLM-Powered Agent (Llama 3.2)**
+   - **Local LLM Integration**: Uses **Ollama** with the `llama3.2:1b` model to generate context-aware Technical Playbooks.
+   - **LLM-Enhanced EKG**: An Enterprise Knowledge Graph that color-codes nodes based on whether they require an "Auto-Bot" or an "Expert Human."
+   - **Dynamic Orchestration**: Generates real-time execution plans for new incidents using semantic lookup.
+
+---
+
+### 🔬 Track B: Research & Development (ServiceTickets Series)
+The foundation of the semantic NLP pipeline.
+
+1. **[ServiceTickets001.ipynb](./ServiceTickets001.ipynb) - Keyword Baseline**
+   - Implements **TF-IDF** vectorization and standard **K-Means**.
 2. **[ServiceTickets002.ipynb](./ServiceTickets002.ipynb) - Semantic Introduction**
-   - Replaces TF-IDF with **SBERT (Sentence-BERT)** dense embeddings using the `all-MiniLM-L6-v2` model.
-   - Introduces **PCA (Principal Component Analysis)** for dimensionality reduction (from 384 dimensions to 10).
-
+   - Replaces keywords with **SBERT** embeddings and adds **PCA** for visualization.
 3. **[ServiceTickets003.ipynb](./ServiceTickets003.ipynb) - Cluster Optimization**
-   - Integrates the **Elbow Method** to programmatically and visually identify the optimal number of clusters (`k`).
-   - Implements **Auto-Logging** to register metrics for every run.
-
-4. **[ServiceTickets004.ipynb](./ServiceTickets004.ipynb) - Advanced EKG & HNSW**
-   - Implements **HNSW (Hierarchical Navigable Small World)** for approximate nearest neighbor search.
-   - Constructs a dual-layer **Enterprise Knowledge Graph (EKG)**:
-     - **Incident -> Cluster** links for hierarchical grouping.
-     - **Incident -> Incident** "Similarity Mesh" for direct sematic relationships.
-   - Adds an interactive **Fast Search** cell for real-time ticket discovery.
+   - Integrates the **Elbow Method** and Auto-Logging to CSV.
+4. **[ServiceTickets004.ipynb](./ServiceTickets004.ipynb) - High-Performance Search**
+   - Implements **HNSW** indexing for sub-millisecond similarity search.
+5. **[ServiceTickets005.ipynb](./ServiceTickets005.ipynb) - Noise Reduction**
+   - Uses **HDBSCAN** for high-density clustering to isolate outlier tickets.
 
 ---
 
 ## 📊 Evaluation & Monitoring
 
-Model performance is tracked centrally to ensure quality and reproducibility:
+- **[Performance_Dashboard.ipynb](./Performance_Dashboard.ipynb)**: A unified dashboard visualizing model comparisons across all versions.
+- **[notebook_evaluations.csv](./notebook_evaluations.csv)**: Central registry for Silhouette and Davies-Bouldin metrics.
 
-- **[notebook_evaluations.csv](./notebook_evaluations.csv)**: A central registry storing Silhouette scores, Davies-Bouldin indices, and cluster counts for every experiment.
-- **[Performance_Dashboard.ipynb](./Performance_Dashboard.ipynb)**: A unified dashboard that visualizes model comparisons across all notebook versions.
+---
+
+## ⚙️ Setup & Prerequisites
+
+### 1. Local LLM Setup (For MVP 002)
+To run the Agentic LLM features, you must have **Ollama** installed:
+1. Download from [ollama.com](https://ollama.com).
+2. Open your terminal and run:
+   ```bash
+   ollama run llama3.2:1b
+   ```
+
+### 2. Environment Setup
+1. Activate your virtual environment: `.\venv\Scripts\activate`
+2. Install dependencies:
+   ```bash
+   pip install sentence-transformers hdbscan scikit-learn networkx matplotlib pandas numpy ollama
+   ```
 
 ---
 
 ## 🛠️ Technology Stack
-
-- **NLP**: `sentence-transformers` (SBERT)
-- **Vector Search**: `hnswlib` (HNSW)
-- **Clustering**: `scikit-learn` (KMeans, PCA), `hdbscan`
-- **Graphing**: `NetworkX`, `Matplotlib`
-- **Data**: `Pandas`, `Numpy`
-
----
-
-## ⚙️ Setup & Installation
-
-### Prerequisites
-- Python 3.10+
-- A virtual environment (recommended)
-
-### Installation
-1. Activate your virtual environment:
-   ```bash
-   # Windows
-   .\venv\Scripts\activate
-   ```
-2. Install the core dependencies:
-   ```bash
-   pip install sentence-transformers hnswlib hdbscan scikit-learn networkx matplotlib pandas numpy nbformat
-   ```
-
-### Running the Pipeline
-Open any notebook and run all cells. Ensure `all_tickets_processed_improved_v3.csv` is present in the root directory. After running an analysis notebook, check the **Performance Dashboard** to see how your new metrics compare to historical runs.
+- **AI Models**: Llama 3.2 (via Ollama), SBERT (MiniLM-L6)
+- **Graphing**: NetworkX (EKG Logic)
+- **Vector Search**: HNSWlib
+- **Clustering**: HDBSCAN, KMeans
 
 ---
 
